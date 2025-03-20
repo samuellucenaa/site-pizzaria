@@ -1,12 +1,16 @@
 const c = (el)=>document.querySelector(el);
 const cs = (el)=>document.querySelectorAll(el);
+
+let cart = [];
 let modalQt = 1;
+let modalKey = 0;
 
 pizzaJson.map((item, index)=>{
     let pizzaItem = c('.models .pizza-item').cloneNode(true);
     c('.pizza-area').append(pizzaItem);
     modalQt = 1;
     
+
     pizzaItem.setAttribute('data-key', index);
     pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name;
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`
@@ -16,6 +20,7 @@ pizzaJson.map((item, index)=>{
         e.preventDefault()
         
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
+        modalKey = key;
 
         c('.pizzaWindowArea').style.opacity = 0;
         c('.pizzaWindowArea').style.display = 'flex';
@@ -67,4 +72,15 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
         c('.pizzaInfo--size.selected').classList.remove('selected');
         size.classList.add('selected');
     })
+});
+
+c('.pizzaInfo--addButton').addEventListener('click', ()=>{
+    let size =  c('.pizzaInfo--size.selected').getAttribute('data-key');
+    cart.push({
+        id: pizzaJson[modalKey],
+        size,
+        qt: modalQt,
+    });
+
+    cancelar();
 });
