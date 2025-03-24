@@ -17,9 +17,10 @@ pizzaJson.map((item, index)=>{
     pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description;
     pizzaItem.querySelector('.pizza-item--img img').src = item.img;
     pizzaItem.querySelector('a').addEventListener('click', (e)=>{
-        e.preventDefault()
+        e.preventDefault();
         
         let key = e.target.closest('.pizza-item').getAttribute('data-key');
+        modalQt = 1;
         modalKey = key;
 
         c('.pizzaWindowArea').style.opacity = 0;
@@ -76,9 +77,7 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
 
 c('.pizzaInfo--addButton').addEventListener('click', ()=>{
     let size =  c('.pizzaInfo--size.selected').getAttribute('data-key');
-    
     let identifier = pizzaJson[modalKey].id+'@'+size;
-
     let key = cart.findIndex((item)=>item.identifier == identifier);
 
     if(key > -1){
@@ -92,6 +91,19 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{
         });
     }
     
-
+    atualizarCart();
     cancelar();
 });
+
+function atualizarCart(){
+    if(cart.length > 0){
+        c('aside').classList.add('show');
+
+        for(let i in cart){
+            let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id);
+            console.log(pizzaItem);
+        }
+    } else {
+        c('aside').classList.remove('show');
+    }
+}
