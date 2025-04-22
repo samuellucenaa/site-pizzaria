@@ -1,14 +1,6 @@
 const c = (el)=>document.querySelector(el);
 const cs = (el)=>document.querySelectorAll(el);
 
-// Código dos botões light e dark
-
-let buttonLight = document.getElementById('buttonLight');
-let buttonDark = document.getElementById('buttonDark');
-
-console.log(buttonLight)
-console.log(buttonDark)
-
 let cart = [];
 let modalQt = 1;
 let modalKey = 0;
