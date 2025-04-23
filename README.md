@@ -11,4 +11,5 @@
 
 <h2>Como acessar?</h2>
 
-Clique no link do GitHub Pages.
+Clique no link abaixo: </br>
+<a href="https://samuellucenaa.github.io/site-pizzaria/">https://samuellucenaa.github.io/site-pizzaria/</a>
