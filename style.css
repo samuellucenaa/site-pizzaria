@@ -354,6 +354,7 @@ h1 {
 
     aside {
         width:auto;
+        height: auto;
         position:fixed;
         left:100vw;
         right:0;
@@ -366,7 +367,7 @@ h1 {
     }
     .cart--area {
         width:100vw;
-        height: 100vh;
+        height: 100%;
     }
 
     .menu-closer {
