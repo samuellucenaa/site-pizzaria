@@ -386,6 +386,7 @@ h1 {
         border-radius:0;
         box-shadow:none;
         margin:0;
+        overflow: hidden;
     }
 
     .pizzaBig img {
